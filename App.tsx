@@ -1,19 +1,34 @@
 import 'react-native-gesture-handler';// necessaire pour drawer (reanimated ) should be on the top
-import AppStack from './src/navigations/AppStack';
-// import React from 'react';
+// import AppStack from './src/navigations/AppStack';
+import React from 'react';
 // import MainStack from './src/navigations/MainStack';
-// import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AuthStackNavigator from './src/navigation/AuthStackNavigator';
+import { useUserStore } from './src/store/useUserStore';
+
 
 
 const  App=()=> {
-  return (
-    // <GestureHandlerRootView style={{flex:1,}}>
-    // <MainStack />
-    // </GestureHandlerRootView>
+  const { session, user } = useUserStore();
 
-    <AppStack/>
+  return (
+    <GestureHandlerRootView style={{flex:1,}}>
+    {/* <MainStack /> */}
+      <AuthStackNavigator/>
+
+    </GestureHandlerRootView>
+
+    // <AppStack/>
+
+   
   
   );
 };
 
 export default App;
+
+
+
+
+
+
